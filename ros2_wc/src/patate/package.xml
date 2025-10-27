@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>patate</name>
+  <version>0.0.1</version>
+  <description>Messages + Python node</description>
+  <maintainer email="hugobastien12@gmail.com">student</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+  <build_depend>rosidl_default_generators</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>custom</build_depend>
+
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+</package>
