@@ -26,6 +26,9 @@ setup(
         'console_scripts': [
             'talker = patate.publisher_member_function:main',
             'listener = patate.subscriber_member_function:main',
+            'mytho = patate.mytho_subcriber_member_function:main',
+            'service = patate.service_member_function:main',
+            'client = patate.client_member_function:main',
         ],
     },
 )

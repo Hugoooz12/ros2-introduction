@@ -25,8 +25,8 @@ class Subscriber(Node):
         self.subscription_username = self.create_subscription(Custom, 'some_informations', self.listener_callback, 10)
 
     def listener_callback(self, msg):
-        computer_name = msg.computer_name.data
-        domain_id = msg.domain_id.data 
+        computer_name = msg.computer_name.data[0].upper() + msg.computer_name.data[1:]
+        domain_id = msg.domain_id.data + 1
 
         self.get_logger().info(
             'I heard: \n    Computer name: "%s"\n    Domain id: "%d"' % (computer_name, domain_id)

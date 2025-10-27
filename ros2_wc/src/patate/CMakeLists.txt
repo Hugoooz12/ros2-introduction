@@ -10,6 +10,9 @@ ament_python_install_package(${PROJECT_NAME})
 install(PROGRAMS
   patate/publisher_member_function.py
   patate/subscriber_member_function.py
+  patate/mytho_subscriber_member_function.py
+  patate/service_member_function.py
+  patate/client_member_function.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

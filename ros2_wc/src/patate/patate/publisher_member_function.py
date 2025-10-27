@@ -21,10 +21,10 @@ from custom.msg import Custom
 
 
 class Publisher(Node):
-    def __init__(self, message, value):
+    def __init__(self, computer_name, domain_id):
         super().__init__('computer_name_publisher')
         self.publisher = self.create_publisher(Custom, 'some_informations', 10)
-        self.value, self.message = value, message
+        self.correct_domain_id, self.correct_computer_name = domain_id, computer_name
         timer_period = 1  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
@@ -32,9 +32,9 @@ class Publisher(Node):
     def timer_callback(self):
         msg = Custom()
         value_t, count_t, message_t = Int32(), Int32(), String()
-        value_t.data = self.value
+        value_t.data = self.correct_domain_id
         count_t.data = self.i 
-        message_t.data = self.message
+        message_t.data = self.correct_computer_name
         msg.computer_name = message_t
         msg.domain_id = value_t
         msg.counter = count_t
@@ -44,7 +44,7 @@ class Publisher(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    publisher = Publisher("Computer name: Student", 5)
+    publisher = Publisher("student", 5)
     
     rclpy.spin(publisher)
 
