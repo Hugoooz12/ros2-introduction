@@ -12,10 +12,12 @@ class MinimalService(Node):
 
     def __init__(self, computer_name = "student", domain_id = 5):
         super().__init__('minimal_service')
+        self.declare_parameter('correct_computer_name', 'default_name')
+        self.declare_parameter('correct_domain_id', 0)
         self.computer_name, self.domain_id = String(), Int32()
-        self.computer_name.data, self.domain_id.data = computer_name, domain_id
+        self.computer_name.data, self.domain_id.data = self.get_parameter('correct_computer_name').value, self.get_parameter('correct_domain_id').value
         self.srv = self.create_service(Check, 'check', self.check_callback)
-
+ 
     def check_callback(self, request, response):
         response.answer = Bool()
         response.answer.data = (request.computer_name.data == self.computer_name.data and request.domain_id.data == self.domain_id.data)

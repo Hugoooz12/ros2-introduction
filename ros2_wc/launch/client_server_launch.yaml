@@ -1,0 +1,16 @@
+launch:
+  - node:
+      pkg: "patate"
+      exec: "service_member_function.py"
+      name: "service"
+      namespace: "service1"
+      param:
+        - name: "correct_computer_name"
+          value: "student"
+        - name: "correct_domain_id"
+          value: 5
+  - node:
+      pkg: "patate"
+      exec: "client_member_function.py"
+      name: "client"
+      namespace: "client1"
